@@ -3,11 +3,11 @@ import style from "./Profile.module.css";
 import Mypost from "./Mypostik/Mypost";
 import ProfileInfo from "./Mypostik/ProfileInfo";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className={style.profile}>
       <ProfileInfo />
-      <Mypost />
+      <Mypost postDate={props.postDate} />
     </div>
   );
 };
