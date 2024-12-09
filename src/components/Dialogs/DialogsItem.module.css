@@ -1,0 +1,17 @@
+.dialogLink {
+    color: white; /* Цвет ссылки по умолчанию */
+    text-decoration: none; /* Убираем подчеркивание */
+  }
+
+  .dialogLink:hover {
+    color: gray; /* Цвет ссылки при наведении */
+  }
+  
+  .dialogLink.active {
+    color: rgb(0, 0, 0); /* Цвет ссылки при активном состоянии */
+  }
+
+  .dItem {
+    padding: 10px;
+
+}
