@@ -7,6 +7,12 @@ const Mypost = (props) => {
     <Post key={el.id} id={el.id} message={el.post} like={el.likesCount} />
   ));
 
+  let click = React.createRef();
+
+  let addPost = () => {
+    let text = click.current.value;
+    props.addPost(text);
+  };
   return (
     <div className={style.Mypost}>
       <h2> My Post </h2>
@@ -14,7 +20,7 @@ const Mypost = (props) => {
         <textarea></textarea>
       </div>
       <div>
-        <button>Submit</button>
+        <button onClick={addPost}>Add</button>
       </div>
 
       <div className={style.post}>

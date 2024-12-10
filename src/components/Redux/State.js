@@ -24,5 +24,12 @@ dialogsData: [
   ]
   }
 }
-  
+  export let addPost={newPost} =>{
+    let newPostItem = {
+      id: 5,
+      message: newPost,
+       likesCount:0
+    }
+    state.ProfilePage.postDate.push(newPostItem);
+  }
   export default state;

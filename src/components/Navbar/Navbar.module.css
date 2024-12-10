@@ -2,7 +2,7 @@
     grid-area: nav;
     background-color: rgba(65, 65, 129, 0.808);
     padding: 45px;
-    font-size: 20px;
+    font-size: 25px;
   }
 .navLink {
   color: white;
@@ -11,4 +11,13 @@
 
 .activeLink {
     color: rgba(0, 0, 0, 0.388);
+  }
+
+  .item{
+    padding: 10px;
+  }
+
+  .itemSetting{
+    margin-top: 100px;
+    margin-left: 5px;
   }

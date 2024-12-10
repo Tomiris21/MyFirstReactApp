@@ -43,6 +43,16 @@ const Navbar = () => {
             isActive ? style.activeLink : style.navLink
           }
         >
+          Friends
+        </NavLink>
+      </div>
+      <div className={style.itemSetting}>
+        <NavLink
+          to=""
+          className={({ isActive }) =>
+            isActive ? style.activeLink : style.navLink
+          }
+        >
           Settings
         </NavLink>
       </div>
