@@ -1,7 +1,6 @@
-
-
 let state = {
-    ProfilePage:{ postDate:[
+    ProfilePage:{
+       postDate:[
         { id: 1, post: "Hi", likesCount: 12 },
         { id: 2, post: "Its my first post!", likesCount: 15 },
       ],
@@ -24,7 +23,7 @@ dialogsData: [
   ]
   }
 }
-  export let addPost={newPost} =>{
+  export let addPost= (newPost) =>{
     let newPostItem = {
       id: 5,
       message: newPost,
