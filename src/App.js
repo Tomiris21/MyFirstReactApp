@@ -10,7 +10,6 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 const App = (props) => {
  
   return (
-    <BrowserRouter>
     <div className ='wrapper'>
       <Header/>
       <Navbar/>
@@ -21,7 +20,6 @@ const App = (props) => {
         </Routes>
       </div>
     </div>
-    </BrowserRouter>
     );
 }
 

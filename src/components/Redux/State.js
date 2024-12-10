@@ -1,3 +1,6 @@
+import { rerenderEntireTree
+ } from "../../render";
+
 let state = {
     ProfilePage:{
        postDate:[
@@ -23,12 +26,13 @@ dialogsData: [
   ]
   }
 }
-  export let addPost= (newPost) =>{
+  export let addPost = (newPost) => {
     let newPostItem = {
-      id: 5,
-      message: newPost,
-       likesCount:0
+      id:  state.ProfilePage.postDate.length + 1,
+      post: newPost,
+      likesCount:0
     }
-    state.ProfilePage.postDate.push(newPostItem);
+    state.ProfilePage.postDate = [...state.ProfilePage.postDate, newPostItem];
+    rerenderEntireTree(state)
   }
   export default state;
