@@ -1,7 +1,9 @@
-import { rerenderEntireTree
- } from "../../render";
+import { type } from "@testing-library/user-event/dist/type";
+import profileReducer from "./profile.reduce";
+import dialogReducer from "./dialog.reducer";
 
-let state = {
+let store = {
+  _state: {
     ProfilePage:{
        postDate:[
         { id: 1, post: "Hi", likesCount: 12 },
@@ -23,16 +25,27 @@ dialogsData: [
     { id: 3, message: "Hello" },
     { id: 4, message: "" },
     { id: 5, message: "" },
-  ]
+  ],
+  newMessageText: ""
   }
+   
+},
+getState(){
+  return this._state
+},
+rerenderEntireTree (){
+},
+subscribe(observer) {
+  this._rerenderEntireTree = observer
+    },
+
+  dispatch(action){
+    this._state.ProfilePage= profileReducer(this._state.ProfilePage, action)
+    this._state.MessagePage= dialogReducer(this._state.MessagePage,action)
+this._rerenderEntireTree(this._state)
 }
-  export let addPost = (newPost) => {
-    let newPostItem = {
-      id:  state.ProfilePage.postDate.length + 1,
-      post: newPost,
-      likesCount:0
-    }
-    state.ProfilePage.postDate = [...state.ProfilePage.postDate, newPostItem];
-    rerenderEntireTree(state)
-  }
-  export default state;
+}
+    
+
+
+  export default store;
