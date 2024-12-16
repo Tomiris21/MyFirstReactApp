@@ -1,6 +1,6 @@
 import { type } from "@testing-library/user-event/dist/type";
 import profileReducer from "./profile.reduce";
-import dialogReducer from "./dialog.reducer";
+import dialogReducer from "./dialog.reduce";
 
 let store = {
   _state: {
@@ -10,7 +10,7 @@ let store = {
         { id: 2, post: "Its my first post!", likesCount: 15 },
       ],
     },
-    MessagePage: {
+    MessagePage: { 
 dialogsData: [
     { id: 1, name: "Alexandr" },
     { id: 2, name: "Inna" },

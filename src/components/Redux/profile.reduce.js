@@ -1,25 +1,28 @@
+const ADDPOST = 'ADDPOST';
 
-const ADD_POST = 'ADD_POST';
+const initialState = {postDate:[
+  { id: 1, post: "Hi", likesCount: 12 },
+  { id: 2, post: "Its my first post!", likesCount: 15 }
+]}
 
-export const profileReducer = (state, action) => {
-    if (action.type === 'ADD_POST') {
+ const profileReducer = (state =initialState, action) => {
+    if (action.type === 'ADDPOST') {
         let newPostItem = {
-          id: this._state.ProfilePage.postDate.length + 1,
-          post: this.newPost,
+          id: state.postDate.length + 1,
+          post: action.newPostItem,
           likesCount:0
         };
-      state.postDate = [...state.ProfilePage.postDate, newPostItem];
+      state.postDate = [...state.postDate, newPostItem];
 
       }
     
         
-      
-    return state;
+  return state;
 }
 
 export const addPostActionCreator = () => {
     return {
-      type: "ADD-POST",
+      type: 'ADDPOST', newPostItem
     };
   };
 export default profileReducer
