@@ -5,10 +5,10 @@ import dialogReducer from "./dialog.reduce";
 let store = {
   _state: {
     ProfilePage:{
-       postDate:[
+       postDate: [
         { id: 1, post: "Hi", likesCount: 12 },
         { id: 2, post: "Its my first post!", likesCount: 15 },
-      ],
+      ]
     },
     MessagePage: { 
 dialogsData: [

@@ -1,6 +1,6 @@
 const ADDPOST = 'ADDPOST';
 
-const initialState = {postDate:[
+const initialState = {postDate: [
   { id: 1, post: "Hi", likesCount: 12 },
   { id: 2, post: "Its my first post!", likesCount: 15 }
 ]}
@@ -22,7 +22,7 @@ const initialState = {postDate:[
 
 export const addPostActionCreator = () => {
     return {
-      type: 'ADDPOST', newPostItem
-    };
+      type: 'ADDPOST'
+    }
   };
-export default profileReducer
+export default profileReducer;

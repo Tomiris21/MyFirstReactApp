@@ -1,13 +1,13 @@
 import React from "react";
 import style from "./Profile.module.css";
-import Mypost from "./Mypostik/MyPost";
+import myPostContainer from "./Mypostik/MyPostContaioner";
 import ProfileInfo from "./Mypostik/ProfileInfo";
 
 const Profile = (props) => {
   return (
     <div className={style.profile}>
       <ProfileInfo />
-      <Mypost postDate={props.postDate} dispatch={props.dispatch} />
+      <mypostContainer store={props.store} />
     </div>
   );
 };
