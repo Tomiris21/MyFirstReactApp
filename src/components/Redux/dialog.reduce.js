@@ -1,5 +1,5 @@
-const NEW_MESSAGE_TEXT = "NEW-MESSAGE";
-const SEND_MESSAGE = "SEND_MESSAGE;";
+const NEW_MESSAGE_TEXT = "NEW_MESSAGE_TEXT";
+const SEND_MESSAGE = "SEND_MESSAGE";
 
 const initialState = {
   dialogsData: [
@@ -21,26 +21,33 @@ const initialState = {
 };
 
 const dialogReducer = (state = initialState, action) => {
-  if (action.type === NEW_MESSAGE_TEXT) {
-    state.newMessageText = action.NEW_MESSAGE_TEXT;
-  } else if (action.type === SEND_MESSAGE) {
-    let body = state.newMessageText;
-    state.newMessageText = "";
-    let sendMessageSecond = {
-      id: state.MessagePage.message.length + 1,
-      message: body,
-    };
-    state.message = [...state.MessagePage.message, sendMessageSecond];
-  }
+  switch (action.type) {
+    case NEW_MESSAGE_TEXT:
+      return {
+        ...state, // создаем новый объект состояния
+        newMessageText: action.newMessageText, // используем правильное поле
+      };
+    case SEND_MESSAGE:
+      const newMessage = {
+        id: state.messagesData.length + 1,
+        message: state.newMessageText,
+      };
 
-  return state;
+      return {
+        ...state, // создаем новый объект состояния
+        newMessageText: "", // очищаем текст
+        messagesData: [...state.messagesData, newMessage], // добавляем новое сообщение
+      };
+    default:
+      return state;
+  }
 };
 
 export const sendMesssageCreator = () => ({ type: SEND_MESSAGE });
 
-export const newMessageTextCreator = (body) => ({
+export const newMessageTextCreator = (newMessageText) => ({
   type: NEW_MESSAGE_TEXT,
-  body: body,
+  newMessageText, // использовано правильное имя поля
 });
 
 export default dialogReducer;

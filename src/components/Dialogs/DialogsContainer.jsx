@@ -5,10 +5,14 @@ import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
+  console.log("state:", state);
   return {
-    dialogsData: state.DialogPage,
+    dialogsData: state.DialogPage.dialogsData,
+    messagesData: state.DialogPage.messagesData,
+    newMessageText: state.DialogPage.newMessageText,
   };
 };
+
 let mapDispatchToProps = (dispatch) => {
   return {
     newMessageTextCreator: () => {
@@ -19,6 +23,7 @@ let mapDispatchToProps = (dispatch) => {
     },
   };
 };
+
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

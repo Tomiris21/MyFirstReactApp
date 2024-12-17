@@ -16,10 +16,7 @@ const App = (props) => {
           {" "}
           debugger
           <Route path="/Profile" element={<Profile store={props.store} />} />
-          <Route
-            path="/Dialogs"
-            element={<DialogsContainer store={props.store} />}
-          />
+          <Route path="/Dialogs" element={<DialogsContainer />} />
         </Routes>
       </div>
     </div>
