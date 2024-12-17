@@ -3,7 +3,7 @@ import style from "./Mypost.module.css";
 import Post from "./Post/Post";
 
 const Mypost = (props) => {
-  let postElements = props.state.ProfilePage.postDate.map((el) => (
+  let postElements = props.postDate.map((el) => (
     <Post key={el.id} id={el.id} message={el.post} like={el.likesCount} />
   ));
 
