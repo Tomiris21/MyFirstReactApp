@@ -21,23 +21,18 @@ const initialState = {
 };
 
 const dialogReducer = (state = initialState, action) => {
+  let stateCopy = { ...state };
+
   switch (action.type) {
     case NEW_MESSAGE_TEXT:
-      return {
-        ...state, // создаем новый объект состояния
-        newMessageText: action.newMessageText, // используем правильное поле
-      };
+      stateCopy.newMessageText = action.body;
+      return stateCopy;
     case SEND_MESSAGE:
-      const newMessage = {
-        id: state.messagesData.length + 1,
-        message: state.newMessageText,
-      };
+      let body = state.newMessageText;
+      stateCopy.newMessageText = "";
+      stateCopy.messagesData.push({ id: 6, message: body });
 
-      return {
-        ...state, // создаем новый объект состояния
-        newMessageText: "", // очищаем текст
-        messagesData: [...state.messagesData, newMessage], // добавляем новое сообщение
-      };
+      return stateCopy;
     default:
       return state;
   }
@@ -45,9 +40,9 @@ const dialogReducer = (state = initialState, action) => {
 
 export const sendMesssageCreator = () => ({ type: SEND_MESSAGE });
 
-export const newMessageTextCreator = (newMessageText) => ({
+export const newMessageTextCreator = (body) => ({
   type: NEW_MESSAGE_TEXT,
-  newMessageText, // использовано правильное имя поля
+  body: body, // использовано правильное имя поля
 });
 
 export default dialogReducer;

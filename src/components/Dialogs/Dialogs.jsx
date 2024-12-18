@@ -8,20 +8,20 @@ const Dialogs = (props) => {
   let state = props.DialogPage;
 
   let dialogsElements = state.dialogsData.map((dialogs) => (
-    <DialogsItem name={dialogs.name} id={dialogs.id} />
+    <DialogsItem name={dialogs.name} key={dialogs.id} id={dialogs.id} />
   ));
 
   let Messages = state.messagesData.map((message) => (
-    <Message message={message.message} id={message.id} />
+    <Message key={message.id} message={message.message} id={message.id} />
   ));
-  let newMessage = props.newMessage;
+  let newMessageText = props.newMessageText;
 
   let onSendMessageClick = () => {
     props.sendMesssage();
   };
   let onNewMessageChange = (event) => {
     let body = event.target.value;
-    props.newMessageTextCreator(body);
+    props.updateNewMessageText(body);
   };
   return (
     <div className={style.dialogs}>
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
           <div>
             {" "}
             <textarea
-              value={newMessage}
+              value={newMessageText}
               onChange={onNewMessageChange}
               placeholder="New message"
             ></textarea>

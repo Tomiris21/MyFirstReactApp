@@ -14,9 +14,12 @@ const profileReducer = (state = initialState, action) => {
       post: action.newPostItem,
       likesCount: 0,
     };
-    state.postDate = [...state.postDate, newPostItem];
-  }
+    let stateCopy = { ...state };
+    stateCopy.postDate = [...state.postDate];
+    stateCopy.postDate.push(newPostItem);
 
+    return stateCopy;
+  }
   return state;
 };
 
