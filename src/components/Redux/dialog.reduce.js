@@ -28,9 +28,12 @@ const dialogReducer = (state = initialState, action) => {
       stateCopy.newMessageText = action.body;
       return stateCopy;
     case SEND_MESSAGE:
-      let body = state.newMessageText;
+      let body = stateCopy.newMessageText;
       stateCopy.newMessageText = "";
-      stateCopy.messagesData.push({ id: 6, message: body });
+      stateCopy.messagesData = [
+        ...state.messagesData,
+        { id: 6, message: body },
+      ];
 
       return stateCopy;
     default:
