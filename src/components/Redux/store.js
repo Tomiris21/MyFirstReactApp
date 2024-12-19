@@ -9,6 +9,7 @@ let store = {
         { id: 1, post: "Hi", likesCount: 12 },
         { id: 2, post: "Its my first post!", likesCount: 15 },
       ],
+      newPost: "Hello",
     },
     DialogPage: {
       dialogsData: [

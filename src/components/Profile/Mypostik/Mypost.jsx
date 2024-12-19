@@ -15,13 +15,14 @@ const Mypost = (props) => {
 
   let onPostChange = () => {
     let text = Click.current.value;
+    props.updateNewPostText(text);
   };
 
   return (
     <div className={style.Mypost}>
       <h2> My Post </h2>
       <div>
-        <textarea onChange={onPostChange} ref={Click} />
+        <textarea onChange={onPostChange} ref={Click} value={props.newPost} />
       </div>
       <div>
         <button onClick={addPost}>Add</button>
